@@ -19,7 +19,6 @@ module KnowledgeBase
         @message.author = universal_user.name
       end
       if @message.save
-        Blare.post("/log/#{universal_scope.id.to_s}/new", {channel: current_channel, author: @message.author})
         #send SMS, find subscribers to this channel
         if !knowledge_base_config.sms_url.blank?
           subscribers = KnowledgeBase::Subscriber.subscribed_to(current_channel).where(scope: universal_scope)
