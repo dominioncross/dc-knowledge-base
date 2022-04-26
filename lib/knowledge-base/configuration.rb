@@ -5,7 +5,7 @@ module KnowledgeBase
 
     def self.reset
       self.scope_class                    = nil
-      self.mongoid_session_name           = :default
+      self.mongoid_session_name           = :forklift
       self.messages_require_approval      = false
     end
 
