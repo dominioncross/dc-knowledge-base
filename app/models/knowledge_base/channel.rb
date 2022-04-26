@@ -10,7 +10,7 @@ module KnowledgeBase
     include Universal::Concerns::Scoped
     include Universal::Concerns::Tokened
     
-    store_in session: KnowledgeBase::Configuration.mongoid_session_name, collection: 'kb_channels'
+    store_in database: KnowledgeBase::Configuration.mongoid_session_name, collection: 'kb_channels'
 
     field :n, as: :name
     field :no, as: :notes

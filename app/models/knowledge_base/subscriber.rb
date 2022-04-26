@@ -4,7 +4,7 @@ module KnowledgeBase
     include Universal::Concerns::Scoped
     include Universal::Concerns::Tokened
     
-    store_in session: KnowledgeBase::Configuration.mongoid_session_name, collection: 'kb_subscribers'
+    store_in database: KnowledgeBase::Configuration.mongoid_session_name, collection: 'kb_subscribers'
     
     field :ph, as: :phone_number
     field :st, as: :subscribed_to_channels, type: Array, default: []

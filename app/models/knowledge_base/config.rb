@@ -4,7 +4,7 @@ module KnowledgeBase
     include Universal::Concerns::Scoped
     include Universal::Concerns::Tokened
     
-    store_in session: KnowledgeBase::Configuration.mongoid_session_name, collection: 'kb_configs'
+    store_in database: KnowledgeBase::Configuration.mongoid_session_name, collection: 'kb_configs'
 
     field :system_name
     field :url

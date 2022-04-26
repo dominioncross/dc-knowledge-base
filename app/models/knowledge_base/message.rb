@@ -11,7 +11,7 @@ module KnowledgeBase
     include Universal::Concerns::Polymorphic #A model that this message is related to
     include Universal::Concerns::HasAttachments
     
-    store_in session: KnowledgeBase::Configuration.mongoid_session_name, collection: 'kb_messages'
+    store_in database: KnowledgeBase::Configuration.mongoid_session_name, collection: 'kb_messages'
 
     field :a, as: :author
     field :m, as: :message
