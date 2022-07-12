@@ -10,7 +10,7 @@ module KnowledgeBase
     end
     
     def create
-      @message = KnowledgeBase::Message.new params[:message]
+      @message = KnowledgeBase::Message.new params[:message].to_unsafe_h
       @message.scope = universal_scope if !universal_scope.nil?
       @message.channel = current_channel
       @message.status = KnowledgeBase::Configuration.messages_require_approval ? :pending : :active
@@ -27,6 +27,8 @@ module KnowledgeBase
             SmsBroadcast.send(knowledge_base_config, subscriber.phone_number, "#{universal_user.name} posted in the ##{current_channel} channel. #{knowledge_base_config.url}/#{current_channel}", current_channel)
           end
         end
+      else
+        logger.debug @message.errors.to_json
       end
       find_messages
       render json: messages_json

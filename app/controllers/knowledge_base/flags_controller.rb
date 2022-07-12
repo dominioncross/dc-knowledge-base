@@ -3,7 +3,7 @@ require_dependency "knowledge_base/application_controller"
 module KnowledgeBase
   class FlagsController < ApplicationController
     
-    before_filter :find_subject
+    before_action :find_subject
     
     def toggle
       if @subject.flagged_with?(params[:flag])
