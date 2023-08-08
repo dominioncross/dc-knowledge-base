@@ -5,9 +5,9 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'rails', '5.2.8'
+gem 'rails', '7.0.6'
 gem 'mongo', '2.17.1'
-gem 'mongoid', '7.0.5'
+gem 'mongoid', '7.5.1'
 gem 'mongoid_auto_increment', '0.1.5'
 gem 'bson', '4.15.0'
 gem 'mongoid_search'
@@ -28,8 +28,8 @@ gem 'kaminari', '1.2.1'
 gem 'kaminari-mongoid', '1.0.1'
 gem 'rails_autolink'
 
-gem 'universal', git: 'https://github.com/dominioncross/universal', branch: 'rails5'
-gem 'universal-access', git: 'https://github.com/dominioncross/universal-access', branch: 'rails5'
+gem 'universal', git: 'https://github.com/dominioncross/universal', branch: 'rails7'
+gem 'universal-access', git: 'https://github.com/dominioncross/universal-access', branch: 'rails7'
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
 # Git. Remember to move these dependencies to your gemspec before releasing
