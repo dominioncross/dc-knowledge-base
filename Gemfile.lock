@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: https://github.com/dominioncross/universal
-  revision: 3a1dd61287e54d7e26551a3b0bb9cc7619c183bc
-  branch: rails7
+  revision: 51e62d63cd4f71fef4ce6b27fe3963966b78c270
+  tag: 1.0.0
   specs:
     universal (0.0.5)
       mongoid
@@ -18,10 +18,10 @@ GIT
 
 GIT
   remote: https://github.com/dominioncross/universal-access
-  revision: d7c26cdfb05610b9f75ca09a7a95b4e72e47181a
-  branch: rails7
+  revision: 807a71ed58bb55c75b5e81b22f44c3436c51ec89
+  tag: 1.0.0
   specs:
-    universal-access (0.0.1)
+    universal-access (1.0.0)
       haml
       mongoid
       rails
@@ -154,7 +154,7 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    haml (6.1.1)
+    haml (6.1.2)
       temple (>= 0.8.2)
       thor
       tilt
@@ -198,7 +198,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_magick (4.12.0)
-    mini_mime (1.1.2)
+    mini_mime (1.1.5)
     minitest (5.19.0)
     mongo (2.17.1)
       bson (>= 4.8.2, < 5.0.0)
@@ -223,7 +223,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.3-x86_64-darwin)
+    nokogiri (1.15.4-x86_64-darwin)
       racc (~> 1.4)
     public_suffix (5.0.3)
     racc (1.7.1)
