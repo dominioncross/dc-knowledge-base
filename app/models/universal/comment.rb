@@ -1,40 +1,41 @@
+    require 'action_view'
 module Universal
   class Comment
     include Universal::Models::Comment
-    
-    def to_json
+    include ActionView::Helpers::SanitizeHelper
+
+    def to_json(*_args)
       {
-        id: self.id.to_s,
-        kind: self.kind.to_s,
-        author: (self.user.nil? ? self.author : self.user.name),
-        content: self.content.html_safe,
-        html_body: self.html_body.html_safe,
+        id: id.to_s,
+        kind: kind.to_s,
+        author: (user.nil? ? author : user.name),
+        content: content.html_safe.presence || strip_tags(html_body).html_safe,
+        html_body: html_body.html_safe,
         when: self.when,
-        created_at: self.created_at.strftime('%b %d, %Y, %l:%M%P'),
+        created_at: created_at.strftime('%b %d, %Y, %l:%M%P'),
         when_formatted: self.when.strftime('%b %d, %Y, %l:%M%P'),
-        system_generated: self.system_generated,
-        incoming: self.incoming,
-        scope_type: self.scope_type,
-        scope_id: self.scope_id.to_s,
-        subject_type: self.subject_type,
-        subject_id: self.subject_id.to_s,
-        subject_name: self.subject_name,
-        subject_kind: self.subject_kind,
-        related_content: self.related_content
+        system_generated: system_generated,
+        incoming: incoming,
+        scope_type: scope_type,
+        scope_id: scope_id.to_s,
+        subject_type: subject_type,
+        subject_id: subject_id.to_s,
+        subject_name: subject_name,
+        subject_kind: subject_kind,
+        related_content: related_content
       }
     end
-    
+
     def related_content
       c = []
-      youtube_matches = self.content.scan(/\bhttp[s]?\:\/\/www.youtube.com\/watch\?v\=([\w\-]*)\b/)
-      if youtube_matches.any?
+      youtube_matches = content&.scan(%r{\bhttps?://www.youtube.com/watch\?v=([\w-]*)\b})
+      if youtube_matches&.any?
         youtube_matches.each do |m|
-          con = {type: 'youtube', content: m[0]}
-          c.push(con) if !c.include?(con)
+          con = { type: 'youtube', content: m[0] }
+          c.push(con) unless c.include?(con)
         end
       end
-      return c
+      c
     end
-        
   end
 end
