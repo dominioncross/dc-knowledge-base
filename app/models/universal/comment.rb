@@ -1,4 +1,6 @@
-    require 'action_view'
+# frozen_string_literal: true
+
+require 'action_view'
 module Universal
   class Comment
     include Universal::Models::Comment
